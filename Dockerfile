@@ -1,4 +1,4 @@
-FROM golang:1.21.5
+FROM golang:1.23.2
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ ENV GO111MODULE on
 # The command must have a path through, so install with GOMODULE off
 COPY . /app
 
-RUN go install github.com/cosmtrek/air@latest \
+RUN go install github.com/air-verse/air@latest \
 	&& go mod download && go mod tidy
 
 RUN go build -o /tmp/main .
