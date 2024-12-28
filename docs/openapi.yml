@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info:
+  title: Goチャレンジ API ドキュメント
+  description: テスト
+  version: 0.0.1
+
+servers:
+  $ref: './openapi/servers.yml'
+
+paths:
+  $ref: './openapi/paths.yml'
+
+components:
+  schemas:
+    $ref: './openapi/schemas.yml'

@@ -1,0 +1,67 @@
+Locations:
+  type: array
+  items:
+    $ref: '#/Location'
+
+Location:
+  type: object
+  properties:
+    id:
+      type: integer
+      description: ロケーション固有ID
+    name:
+      type: string
+      description: ロケーション名
+    address:
+      type: string
+      description: 住所
+    coordinates:
+      $ref: '#/GeoLocation'
+    evses:
+      type: array
+      items:
+        $ref: '#/EVSE'
+  required:
+    - id
+    - address
+    - coordinates
+
+GeoLocation:
+  type: object
+  properties:
+    latitude:
+      type: number
+      description: 緯度
+    longitude:
+      type: number
+      description: 経度
+
+EVSE:
+  type: object
+  properties:
+    uid:
+      type: string
+      description: CPOのプラットフォーム内のEVSEの固有の識別子。
+    status:
+      description: EVSEのステータス。
+      oneOf:
+        - const: AVAILABLE
+          description: "1: 利用可能 EVSE/コネクタは、新しい充電セッションを開始できます。"
+        - const: BLOCKED
+          description: "2: EVSE/コネクタは、物理的な障壁（例えば、自動車）があるため、アクセスできない。"
+        - const: CHARGING
+          description: "3: EVSE/コネクタは使用中です。"
+        - const: INOPERATIVE
+          description: "4: EVSE/コネクタはまだアクティブではなく、または一時的に使用できないだけで、故障や欠陥があるわけではありません。"
+        - const: OUTOFORDER
+          description: "5: EVSE/コネクタは現在故障しており、一部の部品が壊れている可能性があります。"
+        - const: PLANNED
+          description: "6: EVSE/コネクタは計画中であり、まもなく運用が開始される予定です。"
+        - const: REMOVED
+          description: "7: EVSE/コネクタは廃止/削除されました。"
+        - const: RESERVED
+          description: "8: EVSE/コネクタは特定のEVドライバー専用であり、他のドライバーは利用できません。"
+        - const: UNKNOWN
+          description: "9: ステータス情報は利用できません（オフラインの場合にも使用されます）。"
+      example: "AVAILABLE"
+
