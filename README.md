@@ -44,3 +44,19 @@ Please add code to implement the endpoint.
 3. Proceed with your implementation using provided template.
 4. After completion, create a Pull Request and please provide us with the URL.
 5. You may continue to commit to your branch even after you have provided us with the URL of the Pull Request.
+
+# Claude Code Knowledge
+
+このプロジェクトは、開発に使える Claude Code のコマンドを集積させることを目的としたリポジトリです。各種開発フローやコマンドの整備、そしてそれらの使い方を記したドキュメントを体系的に整理・提供しています。
+
+## ドキュメント
+
+`docs/` ディレクトリには、各種開発フローの詳細な解説ドキュメントが格納されています。
+
+### 利用可能なコマンド
+
+- **[大・中規模タスク開発フロー](docs/task-large.md)** (`task-large/`) - TDD（テスト駆動開発）と人間承認プロセスを組み合わせた高品質なソフトウェア開発手法。新機能開発など大規模・中規模タスクの実行に使用され、仕様管理から実装まで体系化されたワークフローを提供します。
+
+- **[小規模タスク開発フロー](docs/task-small.md)** (`task-small/`) - 小規模タスク向けの簡潔な AI 開発コマンド集。バグ修正や機能の小規模改修など、数時間～ 1 日程度のタスクに最適化された迅速で柔軟なワークフローを提供します。
+
+- **[その他のコマンド](docs/etc.md)** (`etc/`) - 単体で動作する特化型コマンド群。リサーチ・分析（research、error-analysis）など、特定の用途に最適化されたツールを提供します。

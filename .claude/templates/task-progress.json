@@ -1,0 +1,32 @@
+{
+  "spec_name": "$ARGUMENTS",
+  "metadata": {
+    "total_tasks": 0,
+    "completed_tasks": 0,
+    "estimated_hours": 0,
+    "estimated_weeks": 0,
+    "implementation_ready": false
+  },
+  "tasks": {
+    "TASK-001": {
+      "title": "タスク名",
+      "category": "CORE|UI|API|INFRA|DOC",
+      "status": "pending",
+      "priority": "high|medium|low",
+      "estimated_hours": 2,
+      "dependencies": [],
+      "test_cases_file": null,
+      "test_cases": [],
+      "test_cases_approved": false,
+      "implementation_started": false,
+      "files_to_modify": [],
+      "created_at": "current_timestamp",
+      "enumerated_at": null,
+      "approved_at": null,
+      "started_at": null,
+      "completed_at": null
+    }
+  },
+  "created_at": "current_timestamp",
+  "last_updated": "current_timestamp"
+}
