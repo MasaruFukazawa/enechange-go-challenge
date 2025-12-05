@@ -1,0 +1,39 @@
+{
+  "feature_name": "ev-charger-location-search",
+  "project_description": {
+    "source_url": "https://github.com/MasaruFukazawa/enechange-go-challenge/issues/1",
+    "source_type": "github",
+    "figma_url": null,
+    "summary": "指定された緯度・経度・半径で定義された円形エリア内のEV充電器（EVSE）を持つロケーションを検索するAPIエンドポイントの実装",
+    "type": "新機能"
+  },
+  "created_at": "2025-12-06T07:50:00Z",
+  "updated_at": "2025-12-06T07:50:00Z",
+  "language": "japanese",
+  "phase": "basic-design-generated",
+  "approvals": {
+    "basic_design": {
+      "generated": true,
+      "approved": false
+    },
+    "detailed_design": {
+      "generated": false,
+      "approved": false
+    },
+    "tasks": {
+      "generated": false,
+      "approved": false
+    }
+  },
+  "metadata": {
+    "implementation_ready": false,
+    "estimated_complexity": "中",
+    "priority": "高"
+  },
+  "statistics": {
+    "design_sections_count": 3,
+    "component_count": 4,
+    "api_count": 1,
+    "database_entities_count": 2
+  }
+}
