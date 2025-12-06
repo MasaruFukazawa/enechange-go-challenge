@@ -1,67 +1,109 @@
-Locations:
-  type: array
-  items:
-    $ref: '#/Location'
+# =============================================================================
+# レスポンススキーマ
+# =============================================================================
 
-Location:
+LocationsResponse:
+  type: array
+  description: ロケーションのリスト
+  items:
+    $ref: '#/LocationResponse'
+
+LocationResponse:
   type: object
+  description: ロケーション情報（レスポンス用）
   properties:
     id:
-      type: integer
-      description: ロケーション固有ID
+      type: string
+      description: ロケーション固有ID（UUID形式）
+      example: '550e8400-e29b-41d4-a716-446655440000'
     name:
       type: string
-      description: ロケーション名
+      nullable: true
+      description: ロケーション名（省略可能）
+      example: '東京駅充電ステーション'
     address:
       type: string
       description: 住所
+      example: '東京都千代田区丸の内1-9-1'
     coordinates:
-      $ref: '#/GeoLocation'
+      $ref: '#/CoordinatesDTO'
     evses:
       type: array
+      description: このロケーションに属するEVSE（充電器）のリスト
       items:
-        $ref: '#/EVSE'
+        $ref: '#/EVSEResponse'
   required:
     - id
     - address
     - coordinates
+    - evses
 
-GeoLocation:
+CoordinatesDTO:
   type: object
+  description: 座標情報
   properties:
     latitude:
-      type: number
-      description: 緯度
+      type: string
+      description: 緯度（文字列形式）
+      example: '35.681236'
     longitude:
-      type: number
-      description: 経度
+      type: string
+      description: 経度（文字列形式）
+      example: '139.767125'
+  required:
+    - latitude
+    - longitude
 
-EVSE:
+EVSEResponse:
   type: object
+  description: EVSE（Electric Vehicle Supply Equipment）情報
   properties:
     uid:
       type: string
-      description: CPOのプラットフォーム内のEVSEの固有の識別子。
+      description: CPOのプラットフォーム内のEVSE固有識別子
+      example: 'evse-001'
     status:
-      description: EVSEのステータス。
-      oneOf:
-        - const: AVAILABLE
-          description: "1: 利用可能 EVSE/コネクタは、新しい充電セッションを開始できます。"
-        - const: BLOCKED
-          description: "2: EVSE/コネクタは、物理的な障壁（例えば、自動車）があるため、アクセスできない。"
-        - const: CHARGING
-          description: "3: EVSE/コネクタは使用中です。"
-        - const: INOPERATIVE
-          description: "4: EVSE/コネクタはまだアクティブではなく、または一時的に使用できないだけで、故障や欠陥があるわけではありません。"
-        - const: OUTOFORDER
-          description: "5: EVSE/コネクタは現在故障しており、一部の部品が壊れている可能性があります。"
-        - const: PLANNED
-          description: "6: EVSE/コネクタは計画中であり、まもなく運用が開始される予定です。"
-        - const: REMOVED
-          description: "7: EVSE/コネクタは廃止/削除されました。"
-        - const: RESERVED
-          description: "8: EVSE/コネクタは特定のEVドライバー専用であり、他のドライバーは利用できません。"
-        - const: UNKNOWN
-          description: "9: ステータス情報は利用できません（オフラインの場合にも使用されます）。"
-      example: "AVAILABLE"
+      $ref: '#/EVSEStatus'
+  required:
+    - uid
+    - status
 
+EVSEStatus:
+  type: string
+  description: EVSEのステータス
+  enum:
+    - AVAILABLE
+    - BLOCKED
+    - CHARGING
+    - INOPERATIVE
+    - OUTOFORDER
+    - PLANNED
+    - REMOVED
+    - RESERVED
+    - UNKNOWN
+  x-enum-descriptions:
+    AVAILABLE: '1: 利用可能 - EVSEは新しい充電セッションを開始できます'
+    BLOCKED: '2: ブロック - 物理的な障壁（例: 他の自動車）があり、アクセスできません'
+    CHARGING: '3: 充電中 - EVSEは使用中です'
+    INOPERATIVE: '4: 非稼働 - EVSEはまだアクティブでない、または一時的に使用できません（故障ではない）'
+    OUTOFORDER: '5: 故障中 - EVSEは現在故障しており、一部の部品が壊れている可能性があります'
+    PLANNED: '6: 計画中 - EVSEは計画中であり、まもなく運用開始予定です'
+    REMOVED: '7: 廃止 - EVSEは廃止/削除されました'
+    RESERVED: '8: 予約済み - 特定のEVドライバー専用であり、他のドライバーは利用できません'
+    UNKNOWN: '9: 不明 - ステータス情報は利用できません（オフライン時にも使用）'
+  example: 'AVAILABLE'
+
+# =============================================================================
+# エラースキーマ
+# =============================================================================
+
+ErrorResponse:
+  type: object
+  description: エラーレスポンス
+  properties:
+    error:
+      type: string
+      description: エラーメッセージ
+      example: 'Invalid latitude format'
+  required:
+    - error

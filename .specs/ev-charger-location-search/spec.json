@@ -10,14 +10,14 @@
   "created_at": "2025-12-06T07:50:00Z",
   "updated_at": "2025-12-06T07:50:00Z",
   "language": "japanese",
-  "phase": "basic-design-generated",
+  "phase": "detailed-design-generated",
   "approvals": {
     "basic_design": {
       "generated": true,
-      "approved": false
+      "approved": true
     },
     "detailed_design": {
-      "generated": false,
+      "generated": true,
       "approved": false
     },
     "tasks": {

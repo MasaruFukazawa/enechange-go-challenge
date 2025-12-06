@@ -1,2 +1,2 @@
-- url: http://localhost:8888/
-  description: mock server
+- url: http://localhost:8888
+  description: ローカル開発サーバー
