@@ -1,0 +1,28 @@
+openapi: 3.0.3
+info:
+  title: EV Charger Location Search API
+  description: EV充電器ロケーション検索API
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8888
+    description: ローカル開発サーバー
+
+paths:
+  /api/locations:
+    $ref: "./paths.yml#/~1api~1locations"
+
+components:
+  schemas:
+    LocationsResponse:
+      $ref: "./schemas.yml#/LocationsResponse"
+    LocationResponse:
+      $ref: "./schemas.yml#/LocationResponse"
+    CoordinatesDTO:
+      $ref: "./schemas.yml#/CoordinatesDTO"
+    EVSEResponse:
+      $ref: "./schemas.yml#/EVSEResponse"
+    EVSEStatus:
+      $ref: "./schemas.yml#/EVSEStatus"
+    ErrorResponse:
+      $ref: "./schemas.yml#/ErrorResponse"

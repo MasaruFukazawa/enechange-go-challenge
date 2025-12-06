@@ -1,0 +1,39 @@
+{
+  "feature_name": "{生成された機能名}",
+  "project_description": {
+    "source_url": "$ARGUMENTS[0]",
+    "source_type": "auto-detected (notion|github|other)",
+    "figma_url": "$ARGUMENTS[1]",
+    "summary": "抽出されたプロジェクト概要",
+    "type": "新機能|機能改善|不具合修正"
+  },
+  "created_at": "現在のタイムスタンプ",
+  "updated_at": "現在のタイムスタンプ",
+  "language": "japanese",
+  "phase": "basic-design-generated",
+  "approvals": {
+    "basic_design": {
+      "generated": true,
+      "approved": false
+    },
+    "detailed_design": {
+      "generated": false,
+      "approved": false
+    },
+    "tasks": {
+      "generated": false,
+      "approved": false
+    }
+  },
+  "metadata": {
+    "implementation_ready": false,
+    "estimated_complexity": "未評価",
+    "priority": "未設定"
+  },
+  "statistics": {
+    "design_sections_count": 0,
+    "component_count": 0,
+    "api_count": 0,
+    "database_entities_count": 0
+  }
+}

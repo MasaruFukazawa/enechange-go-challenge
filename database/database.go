@@ -23,6 +23,11 @@ func Close() {
 	my.Close()
 }
 
+// GetDB はデータベース接続を返す
+func GetDB() *gorm.DB {
+	return dbMy
+}
+
 func openMySQL() {
 	cnf := config.GetConfig()
 

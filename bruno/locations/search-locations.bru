@@ -1,0 +1,39 @@
+meta {
+  name: Search Locations
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/api/locations?latitude=43.796611&longitude=142.375917&radius=50
+  body: none
+  auth: none
+}
+
+params:query {
+  latitude: 43.796611
+  longitude: 142.375917
+  radius: 50
+}
+
+tests {
+  test("Status is 200", function() {
+    expect(res.status).to.equal(200);
+  });
+
+  test("Response is array", function() {
+    expect(res.body).to.be.an('array');
+  });
+
+  test("Has locations", function() {
+    expect(res.body.length).to.be.greaterThan(0);
+  });
+
+  test("Location has required fields", function() {
+    const loc = res.body[0];
+    expect(loc).to.have.property('id');
+    expect(loc).to.have.property('address');
+    expect(loc).to.have.property('coordinates');
+    expect(loc).to.have.property('evses');
+  });
+}
