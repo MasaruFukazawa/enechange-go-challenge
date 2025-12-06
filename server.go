@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"go-challenge/config"
+	"go-challenge/database"
 	"go-challenge/router"
 	"log"
 	"net/http"
@@ -15,7 +16,9 @@ import (
 func serverInit() {
 	cnf := config.GetConfig()
 
-	r := router.Router()
+	// DBを使用してルーターをセットアップ
+	db := database.GetDB()
+	r := router.SetupRouter(db)
 	srv := &http.Server{
 		Addr:    ":" + cnf.GinPort,
 		Handler: r,

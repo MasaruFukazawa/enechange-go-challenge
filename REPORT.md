@@ -2,7 +2,9 @@
 
 - ~~OpenAPIでAPI仕様書を作成する~~
   - ~~ロケーション APIエンドポイント~~
-- Docker環境を立ち上げる
+- ~~Docker環境を立ち上げる~~
+- .pre-commit-config.yaml を設定する
+- モデルを作成する
 - MySQLにテストデータを投入する
 - API テストケースを作る
   - ロケーション APIエンドポイント
